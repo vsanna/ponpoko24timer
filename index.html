@@ -38,7 +38,6 @@
             height: 400px;
             width: 400px;
             border-radius: 50%;
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(0, 0, 255, 0.6)), url(./peanutskun.png) center/contain;
             box-sizing: border-box;
             display: flex;
             align-items: center;
@@ -82,7 +81,7 @@
     <div class="container">
         <div class="output">
             <div class="circle">
-                <div class="inner-circle">
+                <div class="inner-circle" id="inner-circle">
                     <div class="time">
                         <span class="in">in</span>
                         <span class="left" id="left"></span>
@@ -90,6 +89,10 @@
                 </div>
             </div>
         </div>
+
+        <form class="form">
+            <input type="file" name="bg" id="bg">
+        </form>
     </div>
     <script>
         (function () {
@@ -109,6 +112,27 @@
             }
 
             setInterval(showLeftTime, 1000);
+
+            function setBgImage(url) {
+                const bg = `linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(0, 0, 255, 0.6)), url(${url}) center/contain`;
+                document.getElementById("inner-circle").style.background = bg;
+            }
+
+            // default image
+            setBgImage('./peanutskun.png');
+
+            document.getElementById("bg").addEventListener('change', function (ev) {
+                const files = (ev.target && ev.target.files) ? ev.target.files : [];
+                if (!files.length || !window.FileReader) return;
+
+                if (/^image/.test(files[0].type)) {
+                    var reader = new FileReader();
+                    reader.readAsDataURL(files[0]);
+                    reader.onloadend = function () {
+                        setBgImage(this.result);
+                    }
+                }
+            })
         }())
     </script>
 </body>
