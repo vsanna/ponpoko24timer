@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: helvetica, meirio;
+            letter-spacing: -1.6px;
+        }
+
+        .container {
+            margin: 30vh auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .output {
+            margin-bottom: 80px;
+        }
+
+        .output .circle {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.6), rgba(0, 0, 255, 0.6));
+            height: calc(400px + 32px);
+            width: calc(400px + 32px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .output .inner-circle {
+            height: 400px;
+            width: 400px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(0, 0, 255, 0.6)), url(./peanutskun.png) center/contain;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .output .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .output .time .in {
+            font-size: 3.2rem;
+            color: #d6d6d6;
+            display: block;
+            margin-bottom: -6px;
+            margin-top: -16px;
+        }
+
+        .output .time .left {
+            font-size: 7.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .form-item {
+            margin-bottom: 24px;
+        }
+
+        .form-item label {
+            font-size: 1.2rem;
+            width: 200px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="output">
+            <div class="circle">
+                <div class="inner-circle">
+                    <div class="time">
+                        <span class="in">in</span>
+                        <span class="left" id="left"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            showLeftTime()
+
+            function showLeftTime() {
+                const start = new Date("2021-05-04 20:00");
+                const now = new Date(Date.now());
+                const diff = start - now;
+
+                const leftHr = Math.floor(diff / (1000 * 3600));
+                const leftMin = Math.floor((diff - (leftHr * 1000 * 3600)) / (1000 * 60));
+                const leftSec = Math.floor((diff - (leftHr * 1000 * 3600) - (leftMin * 1000 * 60)) / 1000);
+
+                const leftDiv = document.getElementById("left");
+                leftDiv.innerText = `${leftHr}:${String('00' + leftMin).slice(-2)}:${String('00' + leftSec).slice(-2)}`;
+            }
+
+            setInterval(showLeftTime, 1000);
+        }())
+    </script>
+</body>
+
+</html>
