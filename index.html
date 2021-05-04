@@ -108,7 +108,7 @@
                 const leftSec = Math.floor((diff - (leftHr * 1000 * 3600) - (leftMin * 1000 * 60)) / 1000);
 
                 const leftDiv = document.getElementById("left");
-                leftDiv.innerText = `${leftHr}:${String('00' + leftMin).slice(-2)}:${String('00' + leftSec).slice(-2)}`;
+                leftDiv.innerText = `${leftHr + 1}:${String('00' + leftMin).slice(-2)}:${String('00' + leftSec).slice(-2)}`;
             }
 
             setInterval(showLeftTime, 1000);
