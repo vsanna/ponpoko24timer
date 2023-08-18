@@ -13,7 +13,10 @@
         }
 
         .background {
+            height: 100vh;
             height: 100svh;
+            height: 100dvh;
+
             width: 100vw;
             background: linear-gradient(45deg, rgb(255 217 85 / 50%),  rgb(140 217 63 / 50%)), url(./pokopea24vol7.png);
             position: absolute;
@@ -26,7 +29,10 @@
         }
 
         .container {
+            height: calc(100% - 40vh);
             height: calc(100% - 40svh);
+            height: calc(100% - 40dvh);
+
             margin: 20vh auto;
             display: flex;
             align-items: center;
@@ -35,7 +41,7 @@
         }
 
         .output {
-            margin-bottom: 80px;
+            margin-bottom: 32px;
         }
 
         .output .circle {
@@ -95,6 +101,10 @@
             }
         }
 
+        .link {
+            margin-bottom: 42px;
+        }
+
         .link a {
             letter-spacing: initial;
             font-size: 1.6rem;
@@ -115,6 +125,28 @@
             transform: scale(1.2);
             transition: transform 0.3s;
         }
+
+        .credit {
+            letter-spacing: initial;
+            background: rgba(0,0,0,0.4);
+            padding: 16px;
+            font-size: 14px;
+            border-radius: 5px;
+            /* position: absolute; */
+            /* left: 16px; */
+            /* bottom: 16px; */
+            margin-bottom: 24px;
+            color: #fff;
+        }
+        
+        .credit p {
+            margin: 0;
+        }
+        
+        .credit a {
+            color: #fff;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -134,6 +166,11 @@
 
             <div class="link">
                 <a href="https://ponpoko24.com/" target="_blank" class="href">Visit Official Site!!</a>
+            </div>
+
+            <div class="credit">
+                <p>Copyright <a href="https://twitter.com/ponpokoka" target="_blank">@ponpokoka</a> &  <a href="https://twitter.com/osyarenuts" target="_blank">@osyarenuts</a></p>
+                <p>illustration by <a href="https://twitter.com/towtowru" target="_blank">@towtowru</a></p>
             </div>
         </div>
     </div>
