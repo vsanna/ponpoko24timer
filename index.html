@@ -190,6 +190,8 @@
                 const leftDiv = document.getElementById("left");
                 leftDiv.innerText = `${leftHr}:${String('00' + leftMin).slice(-2)}:${String('00' + leftSec).slice(-2)}`;
             }
+            
+            setInterval(showLeftTime, 200);
 
         }())
 
