@@ -1,8 +1,8 @@
-# ponpoko24vol5timer
-This is a timer for ponpoko vol5.
+# ponpoko24timer
+This is a timer for ponpoko24.
 
 # how to use
-1. open [this page](https://vsanna.github.io/ponpoko24vol5timer/)
+1. open [this page](https://vsanna.github.io/ponpoko24timer/)
 2. change background image if you like to use another one
 3. take screenshot lol (sorry, it doens't have export feature)
 
